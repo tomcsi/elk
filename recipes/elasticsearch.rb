@@ -4,19 +4,10 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-elasticsearch_user 'elasticsearch'
-
-elasticsearch_install 'elasticsearch' do
-  type :package
+elasticsearch_configure 'elasticsearch' do
+  allocated_memory '512m'
+  configuration {(
+    'network.host' => '_global_'
+  })
 end
-
-elasticsearch_service 'elasticsearch' do
-  service_actions [:enable, :start]
-end
-
-elasticsearch_plugin 'head' do
-  url 'mobz/elasticsearch-head'
-  notifies :restart, 'elasticsearch_service[elasticsearch]', :delayed
-end
-
 
