@@ -11,3 +11,7 @@ elasticsearch_configure 'elasticsearch' do
   })
 end
 
+elasticsearch_plugin 'hq' do
+  url 'royrusso/elasticsearch-HQ'
+  action :install
+end
