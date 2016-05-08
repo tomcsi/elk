@@ -7,7 +7,7 @@
 elasticsearch_configure 'elasticsearch' do
   allocated_memory '512m'
   configuration ({
-    'network.host' => '_global_'
+    'network.host' => '0.0.0.0'
   })
 end
 
